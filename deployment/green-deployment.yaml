@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-green
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flask-green
+  template:
+    metadata:
+      labels:
+        app: flask-green
+    spec:
+      containers:
+      - name: flask
+        image: <your_ecr_repo>:green
+        ports:
+        - containerPort: 5000
